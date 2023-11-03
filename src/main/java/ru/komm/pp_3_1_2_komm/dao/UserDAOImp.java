@@ -24,12 +24,10 @@ public class UserDAOImp implements UserDAO {
         return user;
     }
 
-    @Transactional
     public void addUser(User user) {
         entityManager.persist(user);
     }
 
-    @Transactional
     public void editUser(int id, User updatedUser) {
         User userToBeUpdated = getUser(id);
         userToBeUpdated.setHeight(updatedUser.getHeight());
@@ -37,7 +35,6 @@ public class UserDAOImp implements UserDAO {
         entityManager.merge(userToBeUpdated);
     }
 
-    @Transactional
     public void deleteUser(int id) {
         entityManager.remove(getUser(id));
     }

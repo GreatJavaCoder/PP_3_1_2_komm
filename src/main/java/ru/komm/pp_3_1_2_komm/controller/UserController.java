@@ -46,13 +46,13 @@ public class UserController {
         return "/usr/edituser";
     }
 
-    @PostMapping("/personalpage")
+    @PatchMapping("/personalpage")
     public String saveEditedUser(@ModelAttribute("user") User user, @RequestParam("id") int id) {
         userService.editUser(id, user);
         return "redirect:/usr/allusers";
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     public String deleteUser(@RequestParam("id") int id) {
         userService.deleteUser(id);
         return "redirect:/usr/allusers";

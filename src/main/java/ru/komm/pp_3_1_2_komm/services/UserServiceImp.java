@@ -2,6 +2,7 @@ package ru.komm.pp_3_1_2_komm.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.komm.pp_3_1_2_komm.dao.UserDAO;
 import ru.komm.pp_3_1_2_komm.model.User;
 
@@ -31,16 +32,19 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    @Transactional
     public void addUser(User user) {
         userDAO.addUser(user);
     }
 
     @Override
+    @Transactional
     public void editUser(int id, User user) {
         userDAO.editUser(id, user);
     }
 
     @Override
+    @Transactional
     public void deleteUser(int id) {
         userDAO.deleteUser(id);
     }
